@@ -1,0 +1,827 @@
+{
+   "info": {
+      "_postman_id": "15b75589-290b-43f0-b795-474dbbb9ece1",
+      "name": "Datafiniti API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+   },
+   "item": [
+      {
+         "name": "Public Endpoints",
+         "item": [
+            {
+               "name": "Health Check",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/health",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "health"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "Authentication",
+               "request": {
+                  "method": "POST",
+                  "header": [
+                     {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                     }
+                  ],
+                  "body": {
+                     "mode": "raw",
+                     "raw": "{\n\t\"email\": \"YOUR EMAIL ADDRESS\",\n\t\"password\": \"YOUR PASSWORD\"\n\t\n}"
+                  },
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/auth",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "auth"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "Default Views",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/default-views",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "default-views"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "Get Plans",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/plans",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "plans"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "Get Plans By Id",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/plans/:plan_id",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "plans",
+                        ":plan_id"
+                     ],
+                     "variable": [
+                        {
+                           "key": "plan_id",
+                           "value": ""
+                        }
+                     ]
+                  }
+               },
+               "response": []
+            }
+         ],
+         "protocolProfileBehavior": {}
+      },
+      {
+         "name": "Secured Endpoints",
+         "item": [
+            {
+               "name": "Account",
+               "item": [
+                  {
+                     "name": "Get Account",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/account",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "account"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Update Account",
+                     "request": {
+                        "method": "PUT",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"email\": \"newEmail@datafiniti.co\",\n  \"first_name\": \"Hello\",\n  \"last_name\": \"World\",\n  \"organization\": \"Datafiniti\",\n  \"password\": \"data4life\",\n  \"phone_number\": \"123-456-7890\"\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/account",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "account"
+                           ]
+                        }
+                     },
+                     "response": []
+                  }
+               ],
+               "protocolProfileBehavior": {},
+               "_postman_isSubFolder": true
+            },
+            {
+               "name": "Views",
+               "item": [
+                  {
+                     "name": "Get View By Name",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/views/:view_name",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "views",
+                              ":view_name"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "view_name",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Get All Views (Searchable)",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/views?page=1&limit=10",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "views"
+                           ],
+                           "query": [
+                              {
+                                 "key": "page",
+                                 "value": "1"
+                              },
+                              {
+                                 "key": "limit",
+                                 "value": "10"
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Create View",
+                     "request": {
+                        "method": "POST",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"name\": \"prices_only\",\n  \"data_type\": \"product\",\n  \"fields\": [\n    {\"name\": \"prices\"}\n  ]\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/views",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "views"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Delete View",
+                     "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/views/:view_name",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "views",
+                              ":view_name"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "view_name",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Update View",
+                     "request": {
+                        "method": "PUT",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n\t\"name\": \"HighRiseViews\",\n    \"fields\": [\n        {\"name\": \"address\"},\n        {\"name\": \"city\"}\n    ]\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/views/:view_name",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "views",
+                              ":view_name"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "view_name",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  }
+               ],
+               "protocolProfileBehavior": {},
+               "_postman_isSubFolder": true
+            },
+            {
+               "name": "Downloads",
+               "item": [
+                  {
+                     "name": "Get Download",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/downloads/:id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "downloads",
+                              ":id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Get All Downloads (Searchable)",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/downloads?page=1&limit=10",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "downloads"
+                           ],
+                           "query": [
+                              {
+                                 "key": "page",
+                                 "value": "1"
+                              },
+                              {
+                                 "key": "limit",
+                                 "value": "10"
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Cancel Download",
+                     "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/downloads/:id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "downloads",
+                              ":id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  }
+               ],
+               "protocolProfileBehavior": {},
+               "_postman_isSubFolder": true
+            },
+            {
+               "name": "Search",
+               "item": [
+                  {
+                     "name": "Pagination",
+                     "item": [
+                        {
+                           "name": "Paginate Product Data",
+                           "request": {
+                              "method": "POST",
+                              "header": [],
+                              "body": {
+                                 "mode": "raw",
+                                 "raw": "{\n\t\"query\":\"keys:*\",\n\t\"format\":\"json\"\n}",
+                                 "options": {
+                                    "raw": {
+                                       "language": "json"
+                                    }
+                                 }
+                              },
+                              "url": {
+                                 "raw": "https://api.datafiniti.co/v4/products/paginate?page=1&limit=10",
+                                 "host": [
+                                    "https://api.datafiniti.co/v4"
+                                 ],
+                                 "path": [
+                                    "products",
+                                    "paginate"
+                                 ],
+                                 "query": [
+                                    {
+                                       "key": "page",
+                                       "value": "1"
+                                    },
+                                    {
+                                       "key": "limit",
+                                       "value": "10"
+                                    }
+                                 ]
+                              }
+                           },
+                           "response": []
+                        },
+                        {
+                           "name": "Paginate People Data",
+                           "request": {
+                              "method": "POST",
+                              "header": [],
+                              "body": {
+                                 "mode": "raw",
+                                 "raw": "{\n\t\"query\":\"keys:*\",\n\t\"format\":\"json\"\n}",
+                                 "options": {
+                                    "raw": {
+                                       "language": "json"
+                                    }
+                                 }
+                              },
+                              "url": {
+                                 "raw": "https://api.datafiniti.co/v4/people/paginate?page=1&limit=10",
+                                 "host": [
+                                    "https://api.datafiniti.co/v4"
+                                 ],
+                                 "path": [
+                                    "people",
+                                    "paginate"
+                                 ],
+                                 "query": [
+                                    {
+                                       "key": "page",
+                                       "value": "1"
+                                    },
+                                    {
+                                       "key": "limit",
+                                       "value": "10"
+                                    }
+                                 ]
+                              }
+                           },
+                           "response": []
+                        },
+                        {
+                           "name": "Paginate Property Data",
+                           "request": {
+                              "method": "POST",
+                              "header": [],
+                              "body": {
+                                 "mode": "raw",
+                                 "raw": "{\n\t\"query\":\"keys:*\",\n\t\"format\":\"json\"\n}",
+                                 "options": {
+                                    "raw": {
+                                       "language": "json"
+                                    }
+                                 }
+                              },
+                              "url": {
+                                 "raw": "https://api.datafiniti.co/v4/properties/paginate?page=1&limit=10",
+                                 "host": [
+                                    "https://api.datafiniti.co/v4"
+                                 ],
+                                 "path": [
+                                    "properties",
+                                    "paginate"
+                                 ],
+                                 "query": [
+                                    {
+                                       "key": "page",
+                                       "value": "1"
+                                    },
+                                    {
+                                       "key": "limit",
+                                       "value": "10"
+                                    }
+                                 ]
+                              }
+                           },
+                           "response": []
+                        },
+                        {
+                           "name": "Paginate Business Data",
+                           "request": {
+                              "method": "POST",
+                              "header": [],
+                              "body": {
+                                 "mode": "raw",
+                                 "raw": "{\n\t\"query\":\"keys:*\",\n\t\"format\":\"json\"\n}",
+                                 "options": {
+                                    "raw": {
+                                       "language": "json"
+                                    }
+                                 }
+                              },
+                              "url": {
+                                 "raw": "https://api.datafiniti.co/v4/businesses/paginate?page=1&limit=10",
+                                 "host": [
+                                    "https://api.datafiniti.co/v4"
+                                 ],
+                                 "path": [
+                                    "businesses",
+                                    "paginate"
+                                 ],
+                                 "query": [
+                                    {
+                                       "key": "page",
+                                       "value": "1"
+                                    },
+                                    {
+                                       "key": "limit",
+                                       "value": "10"
+                                    }
+                                 ]
+                              }
+                           },
+                           "response": []
+                        }
+                     ],
+                     "protocolProfileBehavior": {},
+                     "_postman_isSubFolder": true
+                  },
+                  {
+                     "name": "Retrieve People Record By ID",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/people/:id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "people",
+                              ":id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Retrieve Property Record By ID",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/properties/:id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "properties",
+                              ":id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Retrieve Business Record By ID",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/businesses/:id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "businesses",
+                              ":id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Retrieve Product Record By ID",
+                     "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/products/:record_id",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "products",
+                              ":record_id"
+                           ],
+                           "variable": [
+                              {
+                                 "key": "record_id",
+                                 "value": ""
+                              }
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Search People Data",
+                     "request": {
+                        "method": "POST",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"query\": \"keys:*\",\n  \"num_records\": 1\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/people/search",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "people",
+                              "search"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Search Property Data",
+                     "request": {
+                        "method": "POST",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "type": "text",
+                              "value": "application/json"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"query\": \"keys:*\",\n  \"num_records\": 1\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/properties/search",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "properties",
+                              "search"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Search Business Data",
+                     "request": {
+                        "method": "POST",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"query\": \"keys:*\",\n  \"num_records\": 1\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/businesses/search",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "businesses",
+                              "search"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "Search Product Data",
+                     "request": {
+                        "method": "POST",
+                        "header": [
+                           {
+                              "key": "Content-Type",
+                              "name": "Content-Type",
+                              "value": "application/json",
+                              "type": "text"
+                           }
+                        ],
+                        "body": {
+                           "mode": "raw",
+                           "raw": "{\n  \"query\": \"keys:*\",\n  \"num_records\": 1\n}"
+                        },
+                        "url": {
+                           "raw": "https://api.datafiniti.co/v4/products/search",
+                           "host": [
+                              "https://api.datafiniti.co/v4"
+                           ],
+                           "path": [
+                              "products",
+                              "search"
+                           ]
+                        }
+                     },
+                     "response": []
+                  }
+               ],
+               "protocolProfileBehavior": {},
+               "_postman_isSubFolder": true
+            },
+            {
+               "name": "Retrieve Your Postman Collection",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "https://api.datafiniti.co/v4/postman",
+                     "host": [
+                        "https://api.datafiniti.co/v4"
+                     ],
+                     "path": [
+                        "postman"
+                     ]
+                  }
+               },
+               "response": []
+            }
+         ],
+         "protocolProfileBehavior": {}
+      }
+   ],
+   "auth": {
+      "type": "bearer",
+      "bearer": [
+         {
+            "key": "token",
+            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJsMWF4NnJraTRjbTNkYnlhMjMzNm42cjlucHF6Y2VubyIsImlzcyI6ImRhdGFmaW5pdGkuY28ifQ.joDnCg9jCcf9gLQRr7CSD6fYYNBDkFIK904P2qBx-P8wCDjMUGvMVlDOBoGPoQFfO4arwVaudQlBdOEl4xFh657FfhzVbT86NTZV79gwSE6TJc-6FSJUu8ky4UgtWwsrUr8haiF0fJxevb5wL7nPBHWcDw94tKr2ZXAf3NtwNXCy2binuGpuI2HQVhRW4PeyyiHtwrEB8ccxy7DhVy3TcunulmzTxjNS7DROYlbFXvrwQpY0Va7cncaD8ukeYOe3kO9W1DTBVviS6t_BxdeEmbhFPxtFen8Px9rRa4QPOZnwZfsjJfeXEsCmydc6P7Hnmd0oazvNnFReuARFTCdXsJxtOUpI017Dyr29h_y52hLOBs11UFfTG9JuibtYAmX0KsC-yjwXxbrkeQdAcTdmPBVbymvbHdfUA6I4_9t6pw5keStf6HLKAg5t663uu7gI7Q-ntNs15nctbkrCmv1OwVrfnOwfaAfh5b5sE5Dxo0v3ltBdJLV5PeDWIzZ0EZKh0jrmxSTViLoc7dKpl6mwD5KdA6NrB3V0d4NF5yT7gO4NddM4cQeEK3oGk8f1NSxhtfbVgYpqdppGIXyPclyPmfXWSBRE5E-Mr_aNHm6mvE3TczT9F16qe1SSOE9LcE9nFlOxB7bjmroKC8tDOjt_SrZdA0R4DgXMBn2omasMGss",
+            "type": "string"
+         }
+      ]
+   },
+   "event": [
+      {
+         "listen": "prerequest",
+         "script": {
+            "id": "ca3627c3-779e-49b2-a82a-9584e2519b1c",
+            "type": "text/javascript",
+            "exec": [
+               ""
+            ]
+         }
+      },
+      {
+         "listen": "test",
+         "script": {
+            "id": "cb2707a9-13e3-4aaa-a5da-23ec724213cd",
+            "type": "text/javascript",
+            "exec": [
+               ""
+            ]
+         }
+      }
+   ],
+   "protocolProfileBehavior": {}
+}
